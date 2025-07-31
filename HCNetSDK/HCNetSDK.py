@@ -439,3 +439,18 @@ class NetClient(metaclass=Singleton):
             sizeof(_nfs_cfg),
         )
         return bool(ok)
+
+    @classmethod
+    def SetDVRMessageCallBack_V31(cls, cbFun: MSGCallBack_V31, user: c_void_p = None) -> bool:
+        """Register alarm message callback."""
+        return bool(cls.sdk.NET_DVR_SetDVRMessageCallBack_V31(cbFun, user))
+
+    @classmethod
+    def SetupAlarmChan_V41(cls, lUserId: c_long, alarm_param: NET_DVR_SETUPALARM_PARAM) -> c_long:
+        """Setup alarm channel."""
+        return cls.sdk.NET_DVR_SetupAlarmChan_V41(lUserId, byref(alarm_param))
+
+    @classmethod
+    def CloseAlarmChan_V30(cls, handle: c_long) -> bool:
+        """Close alarm channel."""
+        return bool(cls.sdk.NET_DVR_CloseAlarmChan_V30(handle))
