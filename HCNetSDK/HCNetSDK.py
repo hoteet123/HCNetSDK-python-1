@@ -58,7 +58,7 @@ class NetClient(metaclass=Singleton):
             cls.sdk = load_library(netsdkdllpath)
             cls.play_sdk = load_library(playsdkdllpath)
         except OSError as e:
-            print('动态库加载失败')
+            raise RuntimeError(f"Failed to load dynamic libraries: {e}") from e
 
         cls.coding_format = 'gbk' if sys_platform == 'windows' else 'utf-8'
 
