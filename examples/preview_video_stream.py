@@ -218,11 +218,6 @@ if __name__ == '__main__':
             'ip': 'camera_ip',
             'username': 'username',
             'password': 'password',
-        },
-        {
-            'ip': 'camera_ip',
-            'username': 'username',
-            'password': 'password',
         }
     ]
 
