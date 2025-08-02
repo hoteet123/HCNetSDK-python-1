@@ -58,7 +58,8 @@ class NetClient(metaclass=Singleton):
             cls.sdk = load_library(netsdkdllpath)
             cls.play_sdk = load_library(playsdkdllpath)
         except OSError as e:
-            print('动态库加载失败')
+            print('动态库加载失败:', e)
+            raise
 
         cls.coding_format = 'gbk' if sys_platform == 'windows' else 'utf-8'
 
